@@ -15,7 +15,7 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    background-image: url("images/promo.jpg");
+    background-image: url("../images/promo.jpg");
 }
 
 .promo_content {
