@@ -1,6 +1,14 @@
 
 @import 'reset.css';
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -9,6 +17,7 @@ body {
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
+    overflow-x: hidden;
 }
 .promo {
     display: flex;
@@ -16,6 +25,7 @@ body {
     height: 100vh;
     width: 100vw;
     background-image: url("../images/promo.jpg");
+    background-position: center;
 }
 
 .promo_content {
@@ -91,7 +101,7 @@ h2 {
     line-height: 95%;
     letter-spacing: -0.05em;
 }
-.project_name {
+.project_name {s
     width: 500px;
 }
 
@@ -106,4 +116,33 @@ h2 {
 .projects .project img {
     width: 93vw;
     border-radius: 25px;
+}
+
+/* Свечение картинок */
+/* .projects .project img:hover {
+    -webkit-box-shadow:0 0 40px #FCFF54; 
+    -moz-box-shadow: 0 0 40px #FCFF54;
+    -ms-box-shadow: 0 0 40px #FCFF54; 
+    box-shadow:0 0 40px #FCFF54;
+} */
+
+
+@media (max-width: 1024px) {
+    .promo {
+        background-position: 30% 70%;
+    }
+
+    .contacts {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contacts h2 {
+        font-size: 34px;
+    }
+    
+    .promo_content h1 {
+        font-size: 40px;
+    }
+
 }
