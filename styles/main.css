@@ -257,6 +257,11 @@ h2 {
 
     .about {
         height: 100%;
+        padding: 30px;
+    }
+
+    .about div section {
+        gap: 15px;
     }
 
 }
