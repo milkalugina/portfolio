@@ -134,13 +134,53 @@ h2 {
     /* filter: blur(0px); */
 }
 
-/* Свечение картинок */
-/* .projects .project img:hover {
-    -webkit-box-shadow:0 0 40px #FCFF54; 
-    -moz-box-shadow: 0 0 40px #FCFF54;
-    -ms-box-shadow: 0 0 40px #FCFF54; 
-    box-shadow:0 0 40px #FCFF54;
-} */
+.about {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/about.jpg");
+    background-position: center;
+    padding: 50px;
+    gap: 60px;
+}
+
+.about h1 {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 95%;
+    letter-spacing: -0.05em;
+    width: 800px;
+}
+
+.about div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.about div section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.about div section div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.about div section h2, .about div section p {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 95%;
+    text-align: right;
+    letter-spacing: -0.05em;
+}
 
 
 @media (max-width: 1024px) {
