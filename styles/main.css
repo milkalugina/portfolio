@@ -28,7 +28,7 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    background-image: url("../images/promo.jpg");
+    background-image: url("../images/promo.jpg") no-repeat;
     background-position: center;
 }
 
@@ -140,6 +140,7 @@ h2 {
     height: 100vh;
     width: 100vw;
     background-image: url("../images/about.jpg");
+    background-size: cover;
     background-position: center;
     padding: 50px;
     gap: 60px;
@@ -236,6 +237,26 @@ h2 {
 
     .projects {
         gap: 50px;
+    }
+
+    .about h1 {
+        font-size: 40px;
+        width: 80vw;
+        line-height: 100%;
+    }
+
+    .about div {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about div section h2, .about div section p {
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .about {
+        height: 100%;
     }
 
 }
