@@ -126,6 +126,8 @@ h2 {
 .projects .project img {
     width: 93vw;
     border-radius: 25px;
+    height: 75vh;
+    object-fit: cover;
     /* -webkit-filter: blur(10px);
     filter: blur(10px); */
 }
