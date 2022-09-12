@@ -15,7 +15,7 @@
   }
 
 body {
-
+    background-color: #F8F9FB;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -moz-user-select: none;
@@ -130,6 +130,10 @@ h2 {
     object-fit: cover;
     /* -webkit-filter: blur(10px);
     filter: blur(10px); */
+}
+
+.text_project h1:hover {
+    opacity: 0.8;
 }
 
 .projects .project img:hover {
