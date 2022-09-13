@@ -22,6 +22,9 @@ body {
     -khtml-user-select: none;
     user-select: none;
     overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling:touch;
+    scroll-behavior: auto;
 }
 .promo {
     display: flex;
