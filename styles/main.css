@@ -135,8 +135,9 @@ h2 {
     filter: blur(10px); */
 }
 
-.text_project h1:hover {
+.text_project h1:hover, .contacts h2 a:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .projects .project img:hover {
