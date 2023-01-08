@@ -193,10 +193,6 @@ h2 {
     letter-spacing: -0.05em;
 }
 
-.about p {
-    padding: 25px;
-}
-
 
 @media (max-width: 1024px) {
     .promo {
