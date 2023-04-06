@@ -134,7 +134,7 @@ h2 {
     filter: blur(10px); */
 }
 
-.text_project h1:hover, .contacts h2 a:hover {
+.text_project a:hover, .contacts h2 a:hover, .back_button:hover {
     opacity: 0.8;
     cursor: pointer;
 }
@@ -191,6 +191,127 @@ h2 {
     text-align: right;
     letter-spacing: -0.05em;
 }
+
+
+.back_button {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 95%;
+    letter-spacing: -0.05em;
+    margin-top: 20px;
+    margin-left: 57px;
+    margin-bottom: 70px;
+}
+
+.text_about {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0px 57px;
+}
+
+.project_settings {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 18px;
+    width: 45vw;
+}
+
+.what_setting, .text_setting {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+}
+
+.what_setting p {
+    opacity: 0.4;
+}
+
+.project_settings p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 95%;
+    letter-spacing: -0.05em;
+}
+
+.project_info {
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 60px;
+}
+
+.project_info h1 {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 95%;
+    letter-spacing: -0.05em;
+}
+
+.project_info h2 {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 95%;
+    letter-spacing: -0.05em;
+    text-align: start;
+}
+
+.info_block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 34px;
+}
+
+.more_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    width: 100%;
+}
+
+.what_info {
+    width: 30%;
+    opacity: 0.4;
+}
+
+.text_info {
+    width: 70%;
+}
+
+.more_info p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 95%;
+    letter-spacing: -0.05em;
+}
+
+.images_block img {
+    width: 100vw;
+    margin: 70px 0px;
+}
+
 
 @media (max-width: 1024px) {
     .promo {
