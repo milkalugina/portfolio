@@ -116,6 +116,13 @@ h2 {
     letter-spacing: -0.05em;
 }
 
+.projects .project .text_project div h1 {
+    width: 26vw;
+}
+
+.projects .project .text_project div p {
+    width: 40vw;
+}
 
 .projects .project .text_project p {
     width: 465px;
@@ -399,7 +406,7 @@ h2 {
         
     }
 
-    .projects .project .text_project h1 {
+    .projects .project .text_project h1, .back_button, .project_info h1, .back_button_bottom a {
         font-size: 30px;
     }
 
@@ -412,8 +419,11 @@ h2 {
         font-size: 40px !important;
     }
 
-    .projects .project .text_project p {
+    .projects .project .text_project p, .project_info h2, .text_content p, .back_button_bottom {
         font-size: 20px;
+    }
+
+    .projects .project .text_project p {
         width: 220px;
     }
 
@@ -451,5 +461,61 @@ h2 {
         gap: 15px;
     }
 
+    .text_about {
+        flex-direction: column;
+    }
+    .project_settings, .project_info {
+        width: 100%;
+    }
+
+    .more_info p, .project_settings p {
+        font-size: 14px;
+    }
+
+    .project_info {
+        gap: 20px;
+    }
+
+    .project_settings {
+        padding-bottom: 40px;
+    }
+
+    .text_about, .scroll_block {
+        margin: 0px 18px;
+    }
+
+    .links_bottom, .back_button  {
+        margin: 18px 18px;
+    }
+
+    .scroll_block, .text_content, .images_content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text_content, .images_content {
+        width: 85vw;
+    }
+
+    .text_content {
+        position: relative;
+    }
+
+    .more_info {
+        flex-direction: column;
+    }
+
+    .project_info h2 {
+        width: 80vw;
+    }
+    
+    .text_info {
+        width: 100%;
+    }
+
+    .back_button_bottom {
+        padding: 20px 0px;
+    }
 
 }
