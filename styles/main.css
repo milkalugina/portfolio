@@ -221,11 +221,21 @@ h2 {
 
 .project_settings {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 18px;
     width: 45vw;
+}
+
+.what_and_text {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.what_setting {
+    width: 9vw;
 }
 
 .what_setting, .text_setting {
@@ -234,7 +244,6 @@ h2 {
     justify-content: flex-end;
     align-items: flex-start;
     padding: 0px;
-    gap: 10px;
 }
 
 .what_setting p {
@@ -436,6 +445,10 @@ h2 {
         gap: 50px;
     }
 
+    .what_setting {
+        width: 15vw;
+    }
+
     .about h1 {
         font-size: 40px;
         width: 80vw;
@@ -516,6 +529,13 @@ h2 {
 
     .back_button_bottom {
         padding: 20px 0px;
+    }
+
+    .more_info {
+        gap: 10px;
+    }
+    .scroll_block {
+        gap: 80px;
     }
 
 }
