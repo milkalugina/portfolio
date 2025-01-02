@@ -164,10 +164,10 @@ h2 {
 
 .about h1 {
     font-weight: 400;
-    font-size: 60px;
+    font-size: 50px;
     line-height: 95%;
     letter-spacing: -0.05em;
-    width: 800px;
+    width: 85vw;
 }
 
 .about div {
@@ -451,7 +451,7 @@ h2 {
 
     .about h1 {
         font-size: 40px;
-        width: 80vw;
+        width: 90vw;
         line-height: 100%;
     }
 
