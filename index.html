@@ -9,284 +9,35 @@
     <!-- <link rel="stylesheet" href="styles/main.css" type="text/css" /> -->
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
+   
     <style>
-
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -moz-user-select: none;
-            -khtml-user-select: none;
-            letter-spacing: -0.02em;
-        }
-
-        .header {
-            margin-top: 120px;
-            margin-bottom: 60px;
-            height: auto;
-            letter-spacing: -0.02em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-right: 1%;    
-        }
-
-        .header-main {
-            align-items: center;
-            background-color: #EEEEEE;
-            padding: 5px 15px 5px 5px;
-            border-radius: 30px; 
-            justify-content: flex-start; 
-            align-items: center; 
-            gap: 10px; 
-            display: inline-flex;
-        }
-
-        .name {
-            color: #222222;
-            font-size: 18px;
-            font-family: Arial;
-            font-weight: 400;
-            line-height: 17.10px;
-            word-wrap: break-word;
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .link-active {
-            background: rgba(34.33, 34.33, 34.33, 0.60);
-            border-radius: 14px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            display: inline-flex;
-            padding: 6px 8px;
-
-
-            color: rgba(255, 255, 255, 0.80);
-            font-size: 14px;
-            font-family: Arial;
-            font-weight: 400;
-            line-height: 13.30px;
-            text-decoration: none;
-        }
-
-        .link {
-            color: rgba(34.33, 34.33, 34.33, 0.60);
-            font-size: 14px;
-            font-family: Arial;
-            font-weight: 400;
-            line-height: 13.30px;
-            word-wrap: break-word;
-            text-decoration: none;
-        }
-
-        .cases {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2px;
-            padding: 2px; 
-        }
-
-        .project {
-            position: relative;
-            flex: 0 0 calc((100% - 4px) / 3);
-            aspect-ratio: 1 / 1;
-            background: #f5f5f5;
-            background-size: cover;
-            background-position: center;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            box-sizing: border-box;
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        .project .arrow {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        pointer-events: none; /* чтобы клик шел по .project */
-        z-index: 100;
-        }
-
-        .image-wrapper {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-wrapper .logo {
-            width: 40%;
-            height: auto;
-        }
-        
-
-        .desc {
-
-            flex-direction: column;
-            gap: 10px;
-            display: inline-flex;
-        }
-
-        .desc h3 {
-            text-decoration: none;
-            margin: 0;
-            color: black;
-            font-size: 18px;
-            font-family: Arial;
-            font-weight: 400;
-            line-height: 17.10px;
-        }
-
-        .desc p {
-            text-decoration: none;
-            margin: 0;
-            color: rgba(0, 0, 0, 0.60);
-            font-size: 14px;
-            font-family: Arial;
-            font-weight: 400;
-            line-height: 13.30px;
-        }
-
-        .footer {
-            margin-top: 24px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        .footer p {
-            color: rgba(34.33, 34.33, 34.33, 0.60);
-            font-size: 16px;
-            font-family: Arial;
-            font-weight: 400;
-            line-height: 19.84px;
-            word-wrap: break-word;
-            margin: 0;
-        }
-
-        .arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .project:hover .arrow {
-            transform: rotate(45deg);
-        }
-
-        /* планшет — 2 в ряд */
         @media (max-width: 1024px) {
-            .project {
-                flex: 1 1 calc(50% - 8px);
-            }
+         div img {
+             width: 100% !important;
+         }
         }
-
-        /* мобилка — 1 в ряд */
-        @media (max-width: 600px) {
-            .project {
-                flex: 1 1 100%;
-            }
-
-            .logo {
-                max-width: 60%;
-            }
-
-            .desc h3 {
-                font-size: 14px;
-            }
-
-            .desc p {
-                font-size: 13px;
-            }
-
-            .header div {
-                font-size: 14px !important;
-                line-height: 17px !important;
-                padding: 0px 30px;
-            }
-
-            .name {
-                display: none; 
-            }
-
-            .footer {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-                gap: 4px;
-                padding: 0 4px;
-                flex-direction: column-reverse;
-            }
-
-            .footer p {
-                font-size: 15px;
-                width: 100%;
-            }
-        }
-
-        .disabled-link {
-            pointer-events: none;
-            color: rgba(34,34,34,0.25) !important;
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-    </style>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        color: #222;
-        background: #fff;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-    }
-    h1, h2, h3 {
-        font-family: Arial, sans-serif;
-        color: #222;
-        font-weight: 400;
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-        line-height: 1.2;
-    }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.1rem; }
-    p {
-        font-size: 1rem;
-        color: #444;
-        margin: 0 0 1em 0;
-        line-height: 1.7;
-    }
-    a {
-        color: #888;
-        text-decoration: underline;
-        transition: color 0.2s;
-    }
-    a:hover {
-        color: #222;
-        text-decoration: none;
-    }
-    </style>
+        .header {
+             height: 50vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             padding-right: 1%;
+         }
+ 
+     </style>
 </head>
 
 <body>
-    <div class="header-main">
-        <img src="images/img-main.png" style="width: 30px; height: 30px;" alt="">
-        <a href="" class="name">Mila Kalugina</a>
-        <a href="" class="link-active">Works</a>
-        <a href="#" class="link disabled-link" tabindex="-1" aria-disabled="true" title="Will be done soon">About</a>
-        <a class="link disabled-link" tabindex="-1" aria-disabled="true" title="Will be done soon">Life things</a>
+
+    <div class="header">
+        <div>
+            <p>Mila Kalugina is a product designer <br> in fintech, building interfaces <br>at Rocket and shaping digital experiences <br> through exploring the world.</p>
+            <br>
+            <br>
+            <a href="https://t.me/jethappiness">Write me on Telegram</a>
+            <br>
+            <a href="mailto: milkalugina@gmail.com">Email me on Gmail</a>    
+        </div>
     </div>
 
     <br>
