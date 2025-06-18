@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mila Kalugina's portfolio</title>
+    <!-- <link rel="stylesheet" href="styles/main.css" type="text/css" /> -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+
+    <style>
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            letter-spacing: -0.02em;
+        }
+
+
+        .header-main {
+            align-items: center;
+            background-color: #EEEEEE;
+            padding: 5px 15px 5px 5px;
+            border-radius: 30px; 
+            justify-content: flex-start; 
+            align-items: center; 
+            gap: 10px; 
+            display: inline-flex;
+        }
+
+        .name {
+            color: #222222;
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 17.10px;
+            word-wrap: break-word;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .link-active {
+            background: rgba(34.33, 34.33, 34.33, 0.60);
+            border-radius: 14px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            display: inline-flex;
+            padding: 6px 8px;
+
+
+            color: rgba(255, 255, 255, 0.80);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 13.30px;
+            text-decoration: none;
+        }
+
+        .link, li {
+            color: rgba(34.33, 34.33, 34.33, 0.60);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 16px;
+            word-wrap: break-word;
+            text-decoration: none;
+        }
+
+        .container {
+            margin: 2px;
+            display: flex;
+            flex-direction: row;
+
+            div, p {
+                color: rgba(34.33, 34.33, 34.33, 0.60);
+                font-size: 16px;
+                font-family: Arial;
+                font-weight: 400;
+                line-height: 22px;
+                word-wrap: break-word;
+            }
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: row;
+            width: 50vw;
+
+            div {
+                flex: 1; 
+            }
+        }
+        
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+        }
+
+
+       .ul li {
+            margin-bottom: 4px;
+        }
+
+        .top-images {
+            display: flex;
+            gap: 2px;
+            margin: 30px 0px;
+        }
+
+        .top-images img {
+            width: 50%;
+            height: auto;
+            display: block;
+        }
+
+        .one-image {
+            display: flex;
+            gap: 2px;
+            margin: 30px 0px;
+        }
+
+        .one-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        @media (max-width: 600px) {
+            .name {
+                display: none; 
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="header-main">
+        <img src="/Users/milkalugina/Desktop/img-main.png" style="width: 30px; height: 30px;" alt="">
+        <a href="" class="name">Mila Kalugina</a>
+        <a href="../index.html" class="link-active">Works</a>
+        <a href="../about.html" class="link">About</a>
+        <a href="../life.html" class="link">Life things</a>
+    </div>
+
+    <div class="one-image">
+        <img src="../images/kommuna_img_1.jpg" alt="Изображение 1">
+    </div>
+
+
+
+    <div class="container">
+        <div class="left-column">
+
+            <div>
+                Исследование, продуктовый дизайн,<br> визуальная концепция, презентация
+            </div>
+
+            <div class="project_name">
+                <div class="meta">Коммуна</div>
+                <div class="meta">Пэт-проект</div>
+                <div class="meta">2023</div>
+            </div>
+        </div>
+      
+        <div class="right-column">
+          <p>
+            Проект решает жилищный вопрос креативного класса, предлагая инструмент для поиска совместимых сожителей на основе гибкой системы подбора ценностей и образа жизни. Вместо стандартных фильтров (пол, возраст), мы сфокусировались на распорядке дня, личных границах и бытовых привычках, чтобы снизить уровень бытовых конфликтов и создать более комфортные условия совместного проживания.
+          </p>
+      
+          <div class="ul">
+            <li>Провела 8 глубинных интервью с молодыми специалистами из Москвы и Петербурга</li>
+            <li>Выявила основные триггеры конфликтов: шум, гости, уборка, интровертность/экстравертность</li>
+            <li>Разработала алгоритм совместимости на основе рутин и ценностей</li>
+            <li>Создала мягкий и дружелюбный интерфейс с удобной системой подбора</li>
+            <li>Провела два цикла юзабилити-тестов (12 пользователей), внедрила улучшения</li>
+          </div>
+
+          <div class="top-images">
+        </div>
+
+      
+          <p>
+            Проект стал частью моей дипломной работы в Школе дизайна НИУ ВШЭ и получил высокую оценку преподавателей. 92% участников опроса заявили, что воспользовались бы таким сервисом для поиска сожителей.
+          </p>
+        </div>
+      </div>
+
+</body>
+
+</html>
