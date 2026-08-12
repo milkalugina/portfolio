@@ -7,16 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life things — Mila Kalugina</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
+            background: #f4f4f4;
+            color: #1a1a1a;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 400;
             letter-spacing: -0.02em;
             -webkit-font-smoothing: antialiased;
-            background: #ffffff;
-            color: #1a1a1a;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a {
@@ -24,18 +32,25 @@
             text-decoration: none;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            column-gap: 2px;
+        }
+
         .site-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 24px 21px 0;
-            gap: 24px;
+            padding-top: 24px;
+            padding-bottom: 0;
         }
 
         .brand {
+            grid-column: 1;
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            padding-left: 21px;
+            min-width: 0;
         }
 
         .brand img {
@@ -44,6 +59,7 @@
             border-radius: 50%;
             object-fit: cover;
             display: block;
+            flex-shrink: 0;
         }
 
         .brand span {
@@ -54,9 +70,12 @@
         }
 
         .nav {
+            grid-column: 2 / 4;
             display: inline-flex;
             align-items: center;
             gap: 16px;
+            padding: 5px 0;
+            justify-self: start;
         }
 
         .nav a {
@@ -72,57 +91,114 @@
             padding: 6px 14px;
         }
 
+        .nav .disabled {
+            pointer-events: none;
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
         .status {
+            grid-column: 4;
+            justify-self: end;
+            padding-right: 21px;
             font-size: 16px;
             line-height: 0.95;
             color: #222222;
             white-space: nowrap;
         }
 
-        .intro {
-            max-width: 640px;
-            margin: 80px auto 48px;
-            padding: 0 21px;
-            text-align: center;
-            color: rgba(34, 34, 34, 0.6);
-            font-size: 16px;
-            line-height: 1.4;
+        .year-block {
+            align-items: start;
+            margin-top: 80px;
+            margin-bottom: 24px;
+            padding-right: 0;
         }
 
-        .intro a {
-            text-decoration: underline;
-            text-underline-offset: 3px;
+        .year-block:first-of-type {
+            margin-top: 100px;
         }
 
         .year {
-            margin: 24px 4px 8px;
-            font-size: 16px;
-            color: rgba(34, 34, 34, 0.45);
+            grid-column: 1;
+            margin: 0;
+            padding: 14px 20px 0 20px;
+            font-family: "Libertinus Math", "Times New Roman", serif;
+            font-size: 46px;
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: #0d0d0d;
         }
 
         .gallery {
+            grid-column: 2 / -1;
             display: flex;
             flex-wrap: wrap;
+            align-items: flex-start;
             gap: 2px;
-            padding: 0 2px 40px;
+            min-width: 0;
         }
 
         .gallery img {
-            width: 19.7%;
+            width: calc((100% - 10px) / 6);
             height: auto;
             display: block;
-            object-fit: cover;
+            flex: 0 0 calc((100% - 10px) / 6);
+            object-fit: unset;
         }
 
         @media (max-width: 1024px) {
             .gallery img {
-                width: calc(50% - 1px);
+                width: calc((100% - 6px) / 4);
+                flex: 0 0 calc((100% - 6px) / 4);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav {
+                grid-column: 1 / -1;
+                padding-left: 21px;
+            }
+
+            .status {
+                grid-column: 2;
+            }
+
+            .year {
+                grid-column: 1 / -1;
+                padding: 0 14px 12px;
+                font-size: 36px;
+            }
+
+            .gallery {
+                grid-column: 1 / -1;
+                padding: 0 14px;
+            }
+
+            .gallery img {
+                width: calc((100% - 4px) / 3);
+                flex: 0 0 calc((100% - 4px) / 3);
             }
         }
 
         @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
             .site-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 padding: 13px 14px 0;
+            }
+
+            .brand {
+                padding-left: 0;
             }
 
             .brand span,
@@ -130,14 +206,30 @@
                 display: none;
             }
 
-            .intro {
-                margin: 48px auto 32px;
+            .nav {
+                padding: 5px 0;
+            }
+
+            .year-block {
+                margin-top: 48px;
+            }
+
+            .year-block:first-of-type {
+                margin-top: 40px;
+            }
+
+            .year {
+                font-size: 32px;
+                padding: 0 14px 10px;
+            }
+
+            .gallery {
                 padding: 0 14px;
-                text-align: left;
             }
 
             .gallery img {
-                width: 100%;
+                width: calc((100% - 2px) / 2);
+                flex: 0 0 calc((100% - 2px) / 2);
             }
         }
     </style>
@@ -145,7 +237,7 @@
 
 <body>
 
-    <header class="site-header">
+    <header class="site-header grid">
         <a class="brand" href="portfolio.html">
             <img src="images/portfolio-v2/avatar.png" alt="">
             <span>Mila Kalugina</span>
@@ -153,94 +245,92 @@
 
         <nav class="nav">
             <a href="portfolio.html">Works</a>
-            <a href="about.html">About</a>
+            <a href="#" class="disabled" tabindex="-1" aria-disabled="true" title="Will be done soon">About</a>
             <a href="index.html" class="is-active">Life things</a>
         </nav>
 
-        <div class="status">Working worldwide</div>
+        <div class="status">Collect memories</div>
     </header>
 
-    <div class="intro">
-        <p>Mila Kalugina is a product designer in fintech, building interfaces at Yandex Fintech and shaping digital experiences through exploring the world.</p>
-        <p>
-            <a href="https://t.me/jethappiness">Write me on Telegram</a>
-            ·
-            <a href="mailto:milkalugina@gmail.com">Email me on Gmail</a>
-        </p>
-    </div>
+    <section class="year-block grid">
+        <h2 class="year">2026</h2>
+        <div class="gallery">
+            <img loading="lazy" src="images/pastabasta.jpg" alt="" title="Любимая паста, апрель">
+            <img loading="lazy" src="images/lovelife.jpg" alt="" title="Мы, ферваль">
+            <img loading="lazy" src="images/perfecthome.jpg" alt="" title="Как дома хорошо, январь">
+            <img loading="lazy" src="images/chocovita.jpg" alt="" title="Гуляем с Чоко, январь">
+            <img loading="lazy" src="images/lifeandbye.jpg" alt="" title="Расставания, январь">
+            <img loading="lazy" src="images/yaltahouses.jpg" alt="" title="Гуляли в Ялте в январе">
+        </div>
+    </section>
 
-    <p class="year">2026</p>
-    <div class="gallery">
-        <img loading="lazy" src="images/pastabasta.jpg" alt="" title="Любимая паста, апрель">
-        <img loading="lazy" src="images/lovelife.jpg" alt="" title="Мы, ферваль">
-        <img loading="lazy" src="images/perfecthome.jpg" alt="" title="Как дома хорошо, январь">
-        <img loading="lazy" src="images/chocovita.jpg" alt="" title="Гуляем с Чоко, январь">
-        <img loading="lazy" src="images/lifeandbye.jpg" alt="" title="Расставания, январь">
-        <img loading="lazy" src="images/yaltahouses.jpg" alt="" title="Гуляли в Ялте в январе">
-    </div>
+    <section class="year-block grid">
+        <h2 class="year">2025</h2>
+        <div class="gallery">
+            <img loading="lazy" src="images/richterbreak.jpg" alt="" title="Завтракли в Рихтере">
+            <img loading="lazy" src="images/hotwheels.jpg" alt="" title="Коллекционируем машинки">
+            <img loading="lazy" src="images/ourday.jpg" alt="" title="Осенний закат">
+            <img loading="lazy" src="images/ges_games.jpg" alt="" title="Играли в ГЭС">
+            <img loading="lazy" src="images/tourists.jpg" alt="" title="У Казанского собора">
+            <img loading="lazy" src="images/saint-p_garden.jpg" alt="" title="Обед в «Саду»">
+            <img loading="lazy" src="images/kolomna.jpg" alt="" title="Гуляли в Коломне">
+            <img loading="lazy" src="images/flowerseveryday.jpg" alt="" title="Всегда цветы">
+            <img loading="lazy" src="images/iluadinnerclub.jpg" alt="" title="Ужинали">
+            <img loading="lazy" src="images/ilua8march.jpg" alt="" title="На 8 марта">
+            <img loading="lazy" src="images/ertyu.jpg" alt="" title="Цветы, счастье, 14 февраля">
+            <img loading="lazy" src="images/2025-02-20-00.02.00.gif" alt="" title="Илья на месте «Второго кафе», февраль">
+            <img loading="lazy" src="images/homedinner.jpg" alt="" title="В гостях, болньезе">
+            <img loading="lazy" src="images/dfghj.jpg" alt="" title="Ходили в бильярд, февраль">
+            <img loading="lazy" src="images/5367839lfkf.jpg" alt="" title="Крымские просторы, январь">
+            <img loading="lazy" src="images/fghj32.jpg" alt="" title="водопад">
+            <img loading="lazy" src="images/456783.jpg" alt="" title="мост домой">
+        </div>
+    </section>
 
-    <p class="year">2025</p>
-    <div class="gallery">
-        <img loading="lazy" src="images/richterbreak.jpg" alt="" title="Завтракли в Рихтере">
-        <img loading="lazy" src="images/hotwheels.jpg" alt="" title="Коллекционируем машинки">
-        <img loading="lazy" src="images/ourday.jpg" alt="" title="Осенний закат">
-        <img loading="lazy" src="images/ges_games.jpg" alt="" title="Играли в ГЭС">
-        <img loading="lazy" src="images/tourists.png" alt="" title="У Казанского собора">
-        <img loading="lazy" src="images/saint-p_garden.png" alt="" title="Обед в «Саду»">
-        <img loading="lazy" src="images/kolomna.jpg" alt="" title="Гуляли в Коломне">
-        <img loading="lazy" src="images/flowerseveryday.jpg" alt="" title="Всегда цветы">
-        <img loading="lazy" src="images/iluadinnerclub.jpg" alt="" title="Ужинали">
-        <img loading="lazy" src="images/ilua8march.jpg" alt="" title="На 8 марта">
-        <img loading="lazy" src="images/ertyu.jpg" alt="" title="Цветы, счастье, 14 февраля">
-        <img loading="lazy" src="images/2025-02-20-00.02.00.gif" alt="" title="Илья на месте «Второго кафе», февраль">
-        <img loading="lazy" src="images/homedinner.jpeg" alt="" title="В гостях, болньезе">
-        <img loading="lazy" src="images/dfghj.jpg" alt="" title="Ходили в бильярд, февраль">
-        <img loading="lazy" src="images/5367839lfkf.jpg" alt="" title="Крымские просторы, январь">
-        <img loading="lazy" src="images/fghj32.jpg" alt="" title="водопад">
-        <img loading="lazy" src="images/456783.jpg" alt="" title="мост домой">
-    </div>
+    <section class="year-block grid">
+        <h2 class="year">2024</h2>
+        <div class="gallery">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5434028254404141523-y.jpg" alt="" title="ужин в мандис">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5424869339724637093-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5404380327088088825-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5364122207053277764-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5364122207053277762-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5424869339724637091-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5438486357442948053-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5427191340778775754-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5427191340778775756-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5379947735609895530-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5354905009667565784-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5413617212603886635-y.jpg" alt="">
+            <img loading="lazy" src="images/IMG_2482.gif" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5422801506245144816-y.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5422801506245144824-y.jpg" alt="">
+            <img loading="lazy" src="images/IMG_9955.jpg" alt="">
+            <img loading="lazy" src="images/telegram-cloud-photo-size-2-5427191340778775558-y.jpg" alt="">
+            <img loading="lazy" src="images/imgjdhfh.jpg" alt="">
+            <img loading="lazy" src="images/IMG_0338.jpg" alt="">
+            <img loading="lazy" src="images/img38377.jpg" alt="">
+            <img loading="lazy" src="images/img839392.jpg" alt="">
+            <img loading="lazy" src="images/img22020.jpg" alt="">
+            <img loading="lazy" src="images/IMG_8568.jpg" alt="">
+            <img loading="lazy" src="images/IMG_8221.jpg" alt="">
+            <img loading="lazy" src="images/IMG_9899.jpg" alt="">
+            <img loading="lazy" src="images/000016020018.jpg" alt="">
+            <img loading="lazy" src="images/000016020034.jpg" alt="">
+            <img loading="lazy" src="images/img3863.jpg" alt="">
+            <img loading="lazy" src="images/img28627.jpg" alt="">
+            <img loading="lazy" src="images/dfghj356.jpg" alt="">
+            <img loading="lazy" src="images/fghj678.jpg" alt="">
+            <img loading="lazy" src="images/ghjfkfkd86.jpg" alt="">
+            <img loading="lazy" src="images/ghj5678.jpg" alt="">
+            <img loading="lazy" src="images/ggh55].jpg" alt="">
+            <img loading="lazy" src="images/hjjj;2.jpg" alt="">
+            <img loading="lazy" src="images/pfh333.jpg" alt="">
+            <img loading="lazy" src="images/pfh39.jpg" alt="">
+            <img loading="lazy" src="images/56789gfdghj.jpg" alt="">
+        </div>
+    </section>
 
-    <p class="year">2024</p>
-    <div class="gallery">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5434028254404141523-y.jpg" alt="" title="ужин в мандис">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5424869339724637093-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5404380327088088825-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5364122207053277764-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5364122207053277762-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5424869339724637091-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5438486357442948053-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5427191340778775754-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5427191340778775756-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5379947735609895530-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5354905009667565784-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5413617212603886635-y.jpg" alt="">
-        <img loading="lazy" src="images/IMG_2482.gif" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5422801506245144816-y.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5422801506245144824-y.jpg" alt="">
-        <img loading="lazy" src="images/IMG_9955.jpg" alt="">
-        <img loading="lazy" src="images/telegram-cloud-photo-size-2-5427191340778775558-y.jpg" alt="">
-        <img loading="lazy" src="images/imgjdhfh.jpg" alt="">
-        <img loading="lazy" src="images/IMG_0338.WEBP" alt="">
-        <img loading="lazy" src="images/img38377.jpg" alt="">
-        <img loading="lazy" src="images/img839392.jpg" alt="">
-        <img loading="lazy" src="images/img22020.jpg" alt="">
-        <img loading="lazy" src="images/IMG_8568.png" alt="">
-        <img loading="lazy" src="images/IMG_8221.jpg" alt="">
-        <img loading="lazy" src="images/IMG_9899.jpg" alt="">
-        <img loading="lazy" src="images/000016020018.jpg" alt="">
-        <img loading="lazy" src="images/000016020034.jpg" alt="">
-        <img loading="lazy" src="images/img3863.jpg" alt="">
-        <img loading="lazy" src="images/img28627.jpg" alt="">
-        <img loading="lazy" src="images/dfghj356.jpg" alt="">
-        <img loading="lazy" src="images/fghj678.jpg" alt="">
-        <img loading="lazy" src="images/ghjfkfkd86.jpg" alt="">
-        <img loading="lazy" src="images/ghj5678.jpg" alt="">
-        <img loading="lazy" src="images/ggh55].jpg" alt="">
-        <img loading="lazy" src="images/hjjj;2.jpg" alt="">
-        <img loading="lazy" src="images/pfh333.jpg" alt="">
-        <img loading="lazy" src="images/pfh39.jpg" alt="">
-        <img loading="lazy" src="images/56789gfdghj.jpg" alt="">
-    </div>
 </body>
 
 </html>

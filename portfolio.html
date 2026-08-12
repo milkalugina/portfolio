@@ -91,6 +91,12 @@
             padding: 6px 14px;
         }
 
+        .nav .disabled {
+            pointer-events: none;
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
         .status {
             grid-column: 4;
             justify-self: end;
@@ -467,7 +473,7 @@
 
         <nav class="nav">
             <a href="portfolio.html" class="is-active">Works</a>
-            <a href="about.html">About</a>
+            <a href="#" class="disabled" tabindex="-1" aria-disabled="true" title="Will be done soon">About</a>
             <a href="index.html">Life things</a>
         </nav>
 
