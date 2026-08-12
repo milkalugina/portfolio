@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mila Kalugina's portfolio</title>
+    <!-- <link rel="stylesheet" href="styles/main.css" type="text/css" /> -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+    <style>
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            letter-spacing: -0.02em;
+        }
+
+        .header {
+            margin-top: 120px;
+            margin-bottom: 60px;
+            height: auto;
+            letter-spacing: -0.02em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 1%;    
+        }
+
+        .header-main {
+            align-items: center;
+            background-color: #EEEEEE;
+            padding: 5px 15px 5px 5px;
+            border-radius: 30px; 
+            justify-content: flex-start; 
+            align-items: center; 
+            gap: 10px; 
+            display: inline-flex;
+        }
+
+        .name {
+            color: #222222;
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 17.10px;
+            word-wrap: break-word;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .link-active {
+            background: rgba(34.33, 34.33, 34.33, 0.60);
+            border-radius: 14px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            display: inline-flex;
+            padding: 6px 8px;
+
+
+            color: rgba(255, 255, 255, 0.80);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 13.30px;
+            text-decoration: none;
+        }
+
+        .link {
+            color: rgba(34.33, 34.33, 34.33, 0.60);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 13.30px;
+            word-wrap: break-word;
+            text-decoration: none;
+        }
+
+        .cases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+            padding: 2px; 
+        }
+
+        .project {
+            position: relative;
+            flex: 0 0 calc((100% - 4px) / 3);
+            aspect-ratio: 1 / 1;
+            background-color: #f5f5f5;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+        }
+
+        .project-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .project .arrow {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        pointer-events: none; /* чтобы клик шел по .project */
+        z-index: 100;
+        }
+
+        .project .desc {
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-wrapper .logo {
+            width: 40%;
+            height: auto;
+        }
+        
+
+        .desc {
+
+            flex-direction: column;
+            gap: 10px;
+            display: inline-flex;
+        }
+
+        .desc h3 {
+            text-decoration: none;
+            margin: 0;
+            color: black;
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 17.10px;
+        }
+
+        .desc p {
+            text-decoration: none;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.60);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 13.30px;
+        }
+
+        .footer {
+            margin-top: 24px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .footer p {
+            color: rgba(34.33, 34.33, 34.33, 0.60);
+            font-size: 16px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 19.84px;
+            word-wrap: break-word;
+            margin: 0;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover .arrow {
+            transform: rotate(45deg);
+        }
+
+        /* планшет — 2 в ряд */
+        @media (max-width: 1024px) {
+            .project {
+                flex: 1 1 calc(50% - 8px);
+            }
+        }
+
+        /* мобилка — 1 в ряд */
+        @media (max-width: 600px) {
+            .project {
+                flex: 1 1 100%;
+            }
+
+            .logo {
+                max-width: 60%;
+            }
+
+            .desc h3 {
+                font-size: 14px;
+            }
+
+            .desc p {
+                font-size: 13px;
+            }
+
+            .header div {
+                font-size: 14px !important;
+                line-height: 17px !important;
+                padding: 0px 30px;
+            }
+
+            .name {
+                display: none; 
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                gap: 4px;
+                padding: 0 4px;
+                flex-direction: column-reverse;
+            }
+
+            .footer p {
+                font-size: 15px;
+                width: 100%;
+            }
+        }
+
+        .disabled-link {
+            pointer-events: none;
+            color: rgba(34,34,34,0.25) !important;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="header-main">
+        <img src="images/img-main.png" style="width: 30px; height: 30px;" alt="">
+        <a href="portfolio.html" class="name">Mila Kalugina</a>
+        <a href="portfolio.html" class="link-active">Works</a>
+        <a href="about.html" class="link">About</a>
+        <a href="#" class="link disabled-link" tabindex="-1" aria-disabled="true" title="Will be done soon">Life things</a>
+    </div>
+
+    <div>
+        
+    </div>
+
+
+    <div class="header">
+            <div style="width: 550px; text-align: center; color: rgba(34.33, 34.33, 34.33, 0.60); font-size: 16px; font-family: Arial; font-weight: 400; line-height: 22.32px; word-wrap: break-word">
+                Продуктовый дизайнер в&nbsp;Яндекс Пэй. Проектирую сложные сервисы и&nbsp;помогаю превращать большие продуктовые задачи в&nbsp;понятный и&nbsp;цельный опыт. Люблю системный подход, сильные детали и&nbsp;решения, которые долго остаются актуальными.            </div>
+    </div>
+
+    <div class="cases">
+
+        <a href="" target="_blank" rel="noopener noreferrer" class="project">
+            <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#222222" stroke-opacity="0.2" stroke-width="1.5"/>
+            </svg>
+
+            <div class="desc">
+                <h3>Яндекс Пэй</h3>
+                <p>Платёжный сервис экосистемы Яндекса</p>
+            </div>
+        </a>
+        
+        <a href="https://www.notion.so/2-0-2121f0147ff980629789f9c644ff2ce6?source=copy_link"  target="_blank" rel="noopener noreferrer" class="project">
+            <img class="project-bg" src="images/rocket-icon.png" alt="">
+                <svg  class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#222222" stroke-opacity="0.2" stroke-width="1.5"/>
+                </svg>
+
+                <div class="desc">
+                    <h3>Рокетбанк</h3>
+                    <p>Перезапустили банк с новой бизнес-моделью</p>
+                </div>
+        </a>
+
+        <a href="https://www.notion.so/Bang-Bang-Education-2121f0147ff980e8b2e8dcdfc3654921?source=copy_link"  target="_blank" rel="noopener noreferrer" class="project">
+            <img class="project-bg" src="images/bbe-landing.png" alt="">
+            <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#222222" stroke-opacity="0.2" stroke-width="1.5"/>
+            </svg>
+
+            <div class="desc">
+                <h3>Bang Bang Education</h3>
+                <p>Школа онлайн-образования в области дизайна и IT</p>
+            </div>
+        </a>
+
+        <a href="https://www.notion.so/2121f0147ff980108e71d1ef58ae537d?source=copy_link"  target="_blank" rel="noopener noreferrer" class="project">
+            <img class="project-bg" src="images/kommuna-app.png" alt="">
+            <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L11 1M11 1V11M11 1H1" stroke="white" stroke-opacity="0.8" stroke-width="1.5"/>
+            </svg>
+
+            <div class="desc">
+                <h3>Приложение «Коммуна»</h3>
+                <p>PET-проект</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Mila Kalugina. Empathy-first, system-driven.</p>
+        <p>Let's work on something meaningful → <a href="mailto:milkalugina@gmail.com" style="color: rgba(34.33, 34.33, 34.33, 0.60); text-decoration: none;">milkalugina@gmail.com</a></p>
+    </div>
+
+
+</body>
+
+</html>

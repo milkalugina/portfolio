@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Mila Kalugina</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            letter-spacing: -0.02em;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-weight: 400;
+            color: #222222;
+            background: #ffffff;
+        }
+
+        .header-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 8px 8px 16px;
+            background: #ffffff;
+        }
+
+        .header-main {
+            align-items: center;
+            background-color: #EEEEEE;
+            padding: 5px 15px 5px 5px;
+            border-radius: 30px;
+            justify-content: flex-start;
+            gap: 10px;
+            display: inline-flex;
+        }
+
+        .name {
+            color: #222222;
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 17.10px;
+            word-wrap: break-word;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .link-active {
+            background: rgba(34.33, 34.33, 34.33, 0.60);
+            border-radius: 14px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            display: inline-flex;
+            padding: 6px 8px;
+            color: rgba(255, 255, 255, 0.80);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 13.30px;
+            text-decoration: none;
+        }
+
+        .link {
+            color: rgba(34.33, 34.33, 34.33, 0.60);
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: 400;
+            line-height: 13.30px;
+            word-wrap: break-word;
+            text-decoration: none;
+        }
+
+        .disabled-link {
+            pointer-events: none;
+            color: rgba(34, 34, 34, 0.25) !important;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            text-align: right;
+            flex-shrink: 0;
+            padding-top: 6px;
+            padding-right: 8px;
+        }
+
+        .contacts a {
+            color: rgba(34, 34, 34, 0.45);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-decoration: none;
+        }
+
+        .contacts a:hover {
+            color: rgba(34, 34, 34, 0.7);
+        }
+
+        .content {
+            max-width: 920px;
+            margin: 64px auto 80px;
+            padding: 0 24px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            margin: 0 0 16px;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.85);
+        }
+
+        .about-text {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: rgba(34, 34, 34, 0.55);
+            max-width: 720px;
+        }
+
+        .entry {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-date {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.35);
+        }
+
+        .entry-body {
+            min-width: 0;
+        }
+
+        .entry-title {
+            margin: 0 0 10px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.85);
+        }
+
+        .entry-title span {
+            color: rgba(34, 34, 34, 0.35);
+        }
+
+        .entry-list {
+            margin: 0;
+            padding-left: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .entry-list li {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.55);
+        }
+
+        .plain-line {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: rgba(34, 34, 34, 0.55);
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .course {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 24px;
+        }
+
+        .course-year {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.35);
+        }
+
+        .course-name {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.85);
+        }
+
+        .course-name span {
+            color: rgba(34, 34, 34, 0.35);
+        }
+
+        @media (max-width: 800px) {
+            .header-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contacts {
+                align-items: flex-start;
+                text-align: left;
+                padding-right: 0;
+            }
+
+            .entry,
+            .course {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .name {
+                display: none;
+            }
+
+            .content {
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-bar">
+        <div class="header-main">
+            <img src="images/img-main.png" style="width: 30px; height: 30px;" alt="">
+            <a href="portfolio.html" class="name">Mila Kalugina</a>
+            <a href="portfolio.html" class="link">Works</a>
+            <a href="about.html" class="link-active">About</a>
+            <a href="#" class="link disabled-link" tabindex="-1" aria-disabled="true" title="Will be done soon">Life things</a>
+        </div>
+
+        <div class="contacts">
+            <a href="mailto:milakalugina@gmail.com">milakalugina@gmail.com</a>
+            <a href="tel:+79153431912">+7 (915) 343-19-12</a>
+            <a href="https://milakalugina.com" target="_blank" rel="noopener noreferrer">milakalugina.com</a>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <section class="section">
+            <h2 class="section-title">Обо мне</h2>
+            <p class="about-text">
+                Я&nbsp;— продуктовый дизайнер с&nbsp;трёхлетним опытом, влюблённая в&nbsp;сложные задачи и&nbsp;честный пользовательский опыт. Прошла путь от&nbsp;студийных проектов до&nbsp;запуска финтех-продуктов с&nbsp;нуля в&nbsp;стартапе. Верю в&nbsp;эмпатию и&nbsp;итерации, умею спорить по&nbsp;делу и&nbsp;спокойно принимать ограничения. Ищу команду, где можно не&nbsp;только делать интерфейсы, но&nbsp;и&nbsp;влиять на&nbsp;продукт.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Work Experience</h2>
+
+            <div class="entry">
+                <p class="entry-date">август 2024 — now</p>
+                <div class="entry-body">
+                    <h3 class="entry-title">Продуктовый дизайнер в Рокетбанке <span>(Moscow, Russia)</span></h3>
+                    <ul class="entry-list">
+                        <li>Отвечала за дизайн сразу нескольких ключевых зон: лояльность, дебетовая карта, кешбек, реферальная программа</li>
+                        <li>Проектировала и запускала интерфейсы с нуля — от UX-исследований и пользовательских сценариев до прототипирования, UI и передачи в разработку</li>
+                        <li>Работала на стыке с продактами, аналитиками и разработкой — от груминга фич до релиза</li>
+                        <li>Вела фичи end-to-end, синхронизировала несколько треков и самостоятельно контролировала пайплайн задач</li>
+                        <li>По результатам исследований проводила коридорные тесты и UX-ревью, чтобы быстро проверять решения</li>
+                        <li>Участвовала в развитии дизайн-системы и внутренних процессов команды</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <p class="entry-date">май 2023 — август 2024</p>
+                <div class="entry-body">
+                    <h3 class="entry-title">Продуктовый дизайнер в Bang Bang Education <span>(Moscow, Russia)</span></h3>
+                    <ul class="entry-list">
+                        <li>Работала над образовательной платформой и внутренними сервисами школы: от проектирования лендингов до интерфейсов для студентов, кураторов и менеджеров</li>
+                        <li>Занималась исследованием пользовательских сценариев, строила CJM, предлагала UX-улучшения для платформы и новых курсов</li>
+                        <li>Разрабатывала интерфейсы совместно с методистами, разработкой и маркетингом</li>
+                        <li>Участвовала в запуске новых курсов (направление IT и развитие в СНГ) и обновлении визуальной айдентики внутри продуктов</li>
+                        <li>Разработка онбординга для дизайнеров: материалы в Notion, welcome-встречи, поддержка в адаптации</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <p class="entry-date">июль 2023 — апрель 2024 (проектно)</p>
+                <div class="entry-body">
+                    <h3 class="entry-title">UX/UI-дизайнер в студии «Луч» <span>(Moscow, Russia)</span></h3>
+                    <ul class="entry-list">
+                        <li>Адаптировала лендинг студии под англоязычную аудиторию — переработала структуру, тексты и визуал</li>
+                        <li>Вёрстка медиа-контента для Telegram-канала: создала визуальную систему под голос студии</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <p class="entry-date">апрель 2021 — июль 2021</p>
+                <div class="entry-body">
+                    <h3 class="entry-title">Продуктовый дизайнер в TakeAPlace Startup <span>(Moscow, Russia)</span></h3>
+                    <ul class="entry-list">
+                        <li>Исследовала рынок и целевую аудиторию, строила CJM и user flow, проводила конкурентный анализ</li>
+                        <li>Спроектировала интерфейс приложения и работала над прототипами для питча</li>
+                        <li>Создавала лендинги для валидации гипотез и сбора данных</li>
+                        <li>Сборка компонентов для UI-kit: цвета, типографика, элементы интерфейса</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="entry">
+                <p class="entry-date">сентябрь 2019 — июль 2023</p>
+                <div class="entry-body">
+                    <h3 class="entry-title">НИУ ВШЭ, Дизайн и программирование, бакалавр <span>(Moscow, Russia)</span></h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Courses</h2>
+            <div class="course-list">
+                <div class="course">
+                    <div class="course-year">2023</div>
+                    <div class="course-name">UX-дизайн <span>(Bang Bang Education)</span></div>
+                </div>
+                <div class="course">
+                    <div class="course-year">2023</div>
+                    <div class="course-name">7 главных навыков UX/UI-дизайнера <span>(Bang Bang Education)</span></div>
+                </div>
+                <div class="course">
+                    <div class="course-year">2020–2023</div>
+                    <div class="course-name">Навыки XXI века: 4 «К» <span>(НИУ ВШЭ)</span></div>
+                </div>
+                <div class="course">
+                    <div class="course-year">2021</div>
+                    <div class="course-name">Design Thinking for Innovation <span>(University of Virginia, Darden School of Business)</span></div>
+                </div>
+                <div class="course">
+                    <div class="course-year">2021</div>
+                    <div class="course-name">Multidisciplinary design, White Russian studio <span>(Bang Bang Education)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Языки</h2>
+            <p class="plain-line">Русский (Native) / Английский (B1) / Турецкий (A2) / Украинский (B1)</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Хард Скиллы</h2>
+            <p class="plain-line">Figma / FigJam / Readymag / Miro / HTML / CSS / Photoshop / Illustrator / InDesign / Midjourney / ChatGPT / Fusara.ai</p>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
