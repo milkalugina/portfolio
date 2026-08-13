@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kommuna — Mila Kalugina</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+
+    <style>
+        @font-face {
+            font-family: "Libertinus Math";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("../fonts/libertinus-math.woff2") format("woff2");
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            color: #1a1a1a;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            column-gap: 2px;
+        }
+
+        .site-header {
+            align-items: center;
+            padding-top: 24px;
+            padding-bottom: 0;
+        }
+
+        .brand {
+            grid-column: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding-left: 21px;
+            min-width: 0;
+        }
+
+        .brand img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .brand span {
+            font-size: 16px;
+            line-height: 0.95;
+            color: #222222;
+            white-space: nowrap;
+        }
+
+        .nav {
+            grid-column: 2 / 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            padding: 5px 0;
+            justify-self: start;
+        }
+
+        .nav a {
+            font-size: 18px;
+            line-height: 0.95;
+            color: #1a1a1a;
+            white-space: nowrap;
+        }
+
+        .nav .is-active {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 6px 14px;
+        }
+
+        .nav .disabled {
+            pointer-events: none;
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .status {
+            grid-column: 4;
+            justify-self: end;
+            padding-right: 21px;
+            font-size: 16px;
+            line-height: 0.95;
+            color: #222222;
+            white-space: nowrap;
+        }
+
+        .case-hero {
+            padding-top: 100px;
+            padding-bottom: 48px;
+            align-items: start;
+        }
+
+        .case-kicker {
+            grid-column: 2 / -1;
+            margin: 0 0 16px;
+            font-size: 16px;
+            line-height: 1.2;
+            color: rgba(26, 26, 26, 0.45);
+        }
+
+        .case-kicker a:hover {
+            color: #1a1a1a;
+        }
+
+        .case-title {
+            grid-column: 2 / -1;
+            margin: 0 0 20px;
+            max-width: 920px;
+            font-family: "Libertinus Math", "Times New Roman", serif;
+            font-size: 46px;
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: #0d0d0d;
+        }
+
+        .case-lede {
+            grid-column: 2 / -1;
+            margin: 0;
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.35;
+            color: rgba(26, 26, 26, 0.72);
+        }
+
+        .case-note {
+            grid-column: 2 / -1;
+            margin: 28px 0 0;
+            max-width: 720px;
+            font-size: 15px;
+            line-height: 1.4;
+            color: rgba(26, 26, 26, 0.45);
+        }
+
+        .case-meta {
+            padding: 8px 0 56px;
+            row-gap: 14px;
+        }
+
+        .meta-row {
+            display: contents;
+        }
+
+        .meta-label {
+            grid-column: 2;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.3;
+            color: rgba(26, 26, 26, 0.4);
+        }
+
+        .meta-value {
+            grid-column: 3 / -1;
+            margin: 0;
+            max-width: 520px;
+            font-size: 15px;
+            line-height: 1.3;
+            color: #1a1a1a;
+        }
+
+        .case-section {
+            padding-bottom: 56px;
+            align-items: start;
+        }
+
+        .case-section h2 {
+            grid-column: 2 / -1;
+            margin: 0 0 18px;
+            font-family: "Libertinus Math", "Times New Roman", serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #0d0d0d;
+        }
+
+        .case-section p,
+        .case-section li {
+            font-size: 17px;
+            line-height: 1.45;
+            color: rgba(26, 26, 26, 0.78);
+        }
+
+        .case-section .body {
+            grid-column: 2 / -1;
+            max-width: 720px;
+        }
+
+        .case-section p {
+            margin: 0 0 14px;
+        }
+
+        .case-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-section ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .case-section li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+        }
+
+        .case-section li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: rgba(26, 26, 26, 0.35);
+        }
+
+        .case-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-media {
+            padding-bottom: 56px;
+            align-items: start;
+        }
+
+        .case-media .media-label {
+            grid-column: 2 / -1;
+            margin: 0 0 12px;
+            font-size: 15px;
+            line-height: 1.3;
+            color: rgba(26, 26, 26, 0.4);
+        }
+
+        .case-media .media {
+            grid-column: 2 / -1;
+            min-width: 0;
+        }
+
+        .case-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .case-media .media-row {
+            display: flex;
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+
+        .case-media .media-row img {
+            width: calc((100% - 2px) / 2);
+            flex: 0 0 calc((100% - 2px) / 2);
+        }
+
+        .case-nav {
+            padding: 24px 0 80px;
+        }
+
+        .case-nav a {
+            grid-column: 2 / -1;
+            font-size: 18px;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        .case-nav a:hover {
+            color: #f3621e;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav {
+                grid-column: 1 / -1;
+                padding-left: 21px;
+            }
+
+            .status {
+                grid-column: 2;
+            }
+
+            .case-kicker,
+            .case-title,
+            .case-lede,
+            .case-note,
+            .case-section h2,
+            .case-section .body,
+            .case-media .media-label,
+            .case-media .media,
+            .case-nav a {
+                grid-column: 1 / -1;
+                padding-left: 21px;
+                padding-right: 21px;
+            }
+
+            .meta-label {
+                grid-column: 1;
+                padding-left: 21px;
+            }
+
+            .meta-value {
+                grid-column: 2;
+                padding-right: 21px;
+            }
+
+            .case-title {
+                font-size: 36px;
+            }
+
+            .case-section h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .site-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 13px 14px 0;
+            }
+
+            .brand {
+                padding-left: 0;
+            }
+
+            .brand span,
+            .status {
+                display: none;
+            }
+
+            .nav {
+                padding: 5px 0;
+            }
+
+            .case-hero {
+                padding-top: 56px;
+            }
+
+            .case-kicker,
+            .case-title,
+            .case-lede,
+            .case-note,
+            .case-section h2,
+            .case-section .body,
+            .case-media .media-label,
+            .case-media .media,
+            .case-nav a,
+            .meta-label,
+            .meta-value {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .meta-label,
+            .meta-value {
+                grid-column: 1 / -1;
+            }
+
+            .meta-value {
+                margin-bottom: 10px;
+            }
+
+            .case-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header grid">
+        <a class="brand" href="../portfolio.html">
+            <img src="../images/portfolio-v2/avatar.png" alt="">
+            <span>Mila Kalugina</span>
+        </a>
+
+        <nav class="nav">
+            <a href="../portfolio.html" class="is-active">Works</a>
+            <a href="#" class="disabled" tabindex="-1" aria-disabled="true" title="Will be done soon">About</a>
+            <a href="../index.html">Life things</a>
+        </nav>
+
+        <div class="status">Working worldwide</div>
+    </header>
+
+    <section class="case-hero grid">
+        <p class="case-kicker"><a href="../portfolio.html">← Works</a></p>
+        <h1 class="case-title">“Kommuna” App</h1>
+        <p class="case-lede">A pet project about shared living for the creative class. It helps people find roommates by lifestyle, habits, and rhythm — not only by budget or neighborhood.</p>
+    </section>
+
+    <section class="case-meta grid">
+        <div class="meta-row">
+            <p class="meta-label">Role</p>
+            <p class="meta-value">Product designer</p>
+        </div>
+        <div class="meta-row">
+            <p class="meta-label">Focus</p>
+            <p class="meta-value">Research, UX, interfaces, web version, matching logic</p>
+        </div>
+        <div class="meta-row">
+            <p class="meta-label">Stage</p>
+            <p class="meta-value">Concept, prototype, user testing, ready-to-develop</p>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>Context</h2>
+        <div class="body">
+            <p>Shared rent is a common reality for students and young professionals, but finding “your” roommate is still almost impossible.</p>
+            <p>Most services stop at price and location. We wanted to account for real compatibility triggers: daily rhythm, communication boundaries, temperament, and even how tidy someone is.</p>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>My responsibility</h2>
+        <div class="body">
+            <ul>
+                <li>Research into user pain points and habits</li>
+                <li>Brand and tone of voice for the project</li>
+                <li>Onboarding and matchmaking scenarios</li>
+                <li>Designing a flexible profile questionnaire</li>
+                <li>UX and visual layouts in Figma</li>
+                <li>Design system based on atomic components</li>
+                <li>OOD for preparing the product for development</li>
+                <li>Concept testing and feedback collection</li>
+            </ul>
+            <p>I worked with Vitaly Gachkovsky as a creative pair — from idea to first prototype and user tests. We also worked on front and back for an MVP version of the product.</p>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>How I worked</h2>
+        <div class="body">
+            <ul>
+                <li>Talked to potential users through quantitative and qualitative interviews</li>
+                <li>Mapped scenarios and pain points</li>
+                <li>Designed matching logic based on compatibility</li>
+                <li>Built an adaptive prototype and ran hallway tests</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>Outcomes</h2>
+        <div class="body">
+            <ul>
+                <li>More relevant matches when looking for housing — users chose roommates by meaningful criteria, not at random</li>
+                <li>Easier decisions — a structured questionnaire plus a visual “spectrum” to assess compatibility faster</li>
+                <li>Less funnel friction — clearer questionnaire and onboarding reduced drop-offs</li>
+                <li>Validated the product hypothesis — positive feedback and confirmation that non-standard filters matter</li>
+                <li>Confirmed potential demand — hallway tests showed people felt they needed a service like this</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="case-media grid">
+        <p class="media-label">Interface style</p>
+        <div class="media">
+            <img loading="lazy" src="../images/kommuna_img_1.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="case-media grid">
+        <p class="media-label">Identity</p>
+        <div class="media media-row">
+            <img loading="lazy" src="../images/projects/communa_id_1.jpg" alt="">
+            <img loading="lazy" src="../images/projects/communa_id_2.jpg" alt="">
+            <img loading="lazy" src="../images/projects/communa_id_3.jpg" alt="">
+            <img loading="lazy" src="../images/projects/communa_id_4.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="case-media grid">
+        <p class="media-label">Onboarding</p>
+        <div class="media">
+            <img loading="lazy" src="../images/projects/communa_1.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="case-media grid">
+        <p class="media-label">Questionnaire &amp; matching</p>
+        <div class="media media-row">
+            <img loading="lazy" src="../images/projects/communa_int_1.jpg" alt="">
+            <img loading="lazy" src="../images/projects/communa_int_2.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="case-media grid">
+        <p class="media-label">Feed &amp; web version</p>
+        <div class="media media-row">
+            <img loading="lazy" src="../images/projects/communa_int_3.jpg" alt="">
+            <img loading="lazy" src="../images/projects/communa_int_4.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="case-media grid">
+        <div class="media">
+            <img loading="lazy" src="../images/projects/communa_2.jpg" alt="">
+        </div>
+    </section>
+
+    <nav class="case-nav grid">
+        <a href="../portfolio.html">← Back to Works</a>
+    </nav>
+
+</body>
+
+</html>

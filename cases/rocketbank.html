@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketbank — Mila Kalugina</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+
+    <style>
+        @font-face {
+            font-family: "Libertinus Math";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("../fonts/libertinus-math.woff2") format("woff2");
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            color: #1a1a1a;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            column-gap: 2px;
+        }
+
+        .site-header {
+            align-items: center;
+            padding-top: 24px;
+            padding-bottom: 0;
+        }
+
+        .brand {
+            grid-column: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding-left: 21px;
+            min-width: 0;
+        }
+
+        .brand img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .brand span {
+            font-size: 16px;
+            line-height: 0.95;
+            color: #222222;
+            white-space: nowrap;
+        }
+
+        .nav {
+            grid-column: 2 / 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            padding: 5px 0;
+            justify-self: start;
+        }
+
+        .nav a {
+            font-size: 18px;
+            line-height: 0.95;
+            color: #1a1a1a;
+            white-space: nowrap;
+        }
+
+        .nav .is-active {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 6px 14px;
+        }
+
+        .nav .disabled {
+            pointer-events: none;
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .status {
+            grid-column: 4;
+            justify-self: end;
+            padding-right: 21px;
+            font-size: 16px;
+            line-height: 0.95;
+            color: #222222;
+            white-space: nowrap;
+        }
+
+        .case-hero {
+            padding-top: 100px;
+            padding-bottom: 48px;
+            align-items: start;
+        }
+
+        .case-kicker {
+            grid-column: 2 / -1;
+            margin: 0 0 16px;
+            font-size: 16px;
+            line-height: 1.2;
+            color: rgba(26, 26, 26, 0.45);
+        }
+
+        .case-kicker a:hover {
+            color: #1a1a1a;
+        }
+
+        .case-title {
+            grid-column: 2 / -1;
+            margin: 0 0 20px;
+            max-width: 920px;
+            font-family: "Libertinus Math", "Times New Roman", serif;
+            font-size: 46px;
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: #0d0d0d;
+        }
+
+        .case-lede {
+            grid-column: 2 / -1;
+            margin: 0;
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.35;
+            color: rgba(26, 26, 26, 0.72);
+        }
+
+        .case-note {
+            grid-column: 2 / -1;
+            margin: 28px 0 0;
+            max-width: 720px;
+            font-size: 15px;
+            line-height: 1.4;
+            color: rgba(26, 26, 26, 0.45);
+        }
+
+        .case-meta {
+            padding: 8px 0 56px;
+            row-gap: 14px;
+        }
+
+        .meta-row {
+            display: contents;
+        }
+
+        .meta-label {
+            grid-column: 2;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.3;
+            color: rgba(26, 26, 26, 0.4);
+        }
+
+        .meta-value {
+            grid-column: 3 / -1;
+            margin: 0;
+            max-width: 520px;
+            font-size: 15px;
+            line-height: 1.3;
+            color: #1a1a1a;
+        }
+
+        .case-section {
+            padding-bottom: 56px;
+            align-items: start;
+        }
+
+        .case-section h2 {
+            grid-column: 2 / -1;
+            margin: 0 0 18px;
+            font-family: "Libertinus Math", "Times New Roman", serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #0d0d0d;
+        }
+
+        .case-section p,
+        .case-section li {
+            font-size: 17px;
+            line-height: 1.45;
+            color: rgba(26, 26, 26, 0.78);
+        }
+
+        .case-section .body {
+            grid-column: 2 / -1;
+            max-width: 720px;
+        }
+
+        .case-section p {
+            margin: 0 0 14px;
+        }
+
+        .case-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-section ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .case-section li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+        }
+
+        .case-section li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: rgba(26, 26, 26, 0.35);
+        }
+
+        .case-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-nav {
+            padding: 24px 0 80px;
+        }
+
+        .case-nav a {
+            grid-column: 2 / -1;
+            font-size: 18px;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        .case-nav a:hover {
+            color: #f3621e;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav {
+                grid-column: 1 / -1;
+                padding-left: 21px;
+            }
+
+            .status {
+                grid-column: 2;
+            }
+
+            .case-kicker,
+            .case-title,
+            .case-lede,
+            .case-note,
+            .case-section h2,
+            .case-section .body,
+            .case-nav a {
+                grid-column: 1 / -1;
+                padding-left: 21px;
+                padding-right: 21px;
+            }
+
+            .meta-label {
+                grid-column: 1;
+                padding-left: 21px;
+            }
+
+            .meta-value {
+                grid-column: 2;
+                padding-right: 21px;
+            }
+
+            .case-title {
+                font-size: 36px;
+            }
+
+            .case-section h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .site-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 13px 14px 0;
+            }
+
+            .brand {
+                padding-left: 0;
+            }
+
+            .brand span,
+            .status {
+                display: none;
+            }
+
+            .nav {
+                padding: 5px 0;
+            }
+
+            .case-hero {
+                padding-top: 56px;
+            }
+
+            .case-kicker,
+            .case-title,
+            .case-lede,
+            .case-note,
+            .case-section h2,
+            .case-section .body,
+            .case-nav a,
+            .meta-label,
+            .meta-value {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .meta-label,
+            .meta-value {
+                grid-column: 1 / -1;
+            }
+
+            .meta-value {
+                margin-bottom: 10px;
+            }
+
+            .case-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header grid">
+        <a class="brand" href="../portfolio.html">
+            <img src="../images/portfolio-v2/avatar.png" alt="">
+            <span>Mila Kalugina</span>
+        </a>
+
+        <nav class="nav">
+            <a href="../portfolio.html" class="is-active">Works</a>
+            <a href="#" class="disabled" tabindex="-1" aria-disabled="true" title="Will be done soon">About</a>
+            <a href="../index.html">Life things</a>
+        </nav>
+
+        <div class="status">Working worldwide</div>
+    </header>
+
+    <section class="case-hero grid">
+        <p class="case-kicker"><a href="../portfolio.html">← Works</a></p>
+        <h1 class="case-title">Rocketbank 2.0</h1>
+        <p class="case-lede">A next-generation mobile bank focused on a transparent user experience and a strong digital identity.</p>
+        <p class="case-note">Under NDA, this case is described without visual solutions. The focus is on problems, process, and product decisions.</p>
+    </section>
+
+    <section class="case-meta grid">
+        <div class="meta-row">
+            <p class="meta-label">Role</p>
+            <p class="meta-value">Product designer across 3 verticals</p>
+        </div>
+        <div class="meta-row">
+            <p class="meta-label">Period</p>
+            <p class="meta-value">August 2024 — August 2025</p>
+        </div>
+        <div class="meta-row">
+            <p class="meta-label">Stage</p>
+            <p class="meta-value">Pre-release, early MVP, active growth</p>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>Context</h2>
+        <div class="body">
+            <p>I joined the team early — while the product was still taking shape and many features existed only as sketches. It was an intense build-up: the team launched core banking scenarios and, at the same time, was forming how we work.</p>
+            <p>My scope covered key debit-card user flows: from card setup and management to cashback, referrals, and loyalty. I switched between tasks, shipped features from zero, and helped keep the visual and interaction system consistent.</p>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>My responsibility</h2>
+        <div class="body">
+            <ul>
+                <li>Designing user scenarios for core banking features (card reissue and management, bonus programs)</li>
+                <li>Designing and evolving loyalty features: cashback, referral program, internal currency</li>
+                <li>Supporting a flexible design system for client interfaces</li>
+                <li>Owning design work from research to handoff, working with engineering, and documenting logic for them</li>
+                <li>Running design reviews and checking implementation quality through prototypes and user testing</li>
+            </ul>
+            <p>I worked with PMs and analysts, took projects from idea to design and handoff, supported launches and internal MVPs, and gathered feedback from the team and early users.</p>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>How I worked</h2>
+        <div class="body">
+            <ul>
+                <li>Competitive analysis and decomposition of user scenarios</li>
+                <li>End-to-end user flows, including rare and edge cases</li>
+                <li>Several concept iterations for discussion with product leadership</li>
+                <li>Product documentation and design specs for engineering</li>
+                <li>Collaboration with designers, analysts, PMs, engineers, and UX writers</li>
+                <li>Clarifying technical and legal constraints before finalizing decisions</li>
+                <li>Testing builds via APK and TestFlight</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="case-section grid">
+        <h2>Outcomes</h2>
+        <div class="body">
+            <ul>
+                <li>Prepared the product for scale — key user scenarios were worked through, edge cases covered, and design documentation ready for engineering and analytics</li>
+                <li>Aligned concepts and visual approaches — ran iteration rounds with the team and leadership to balance user needs and business constraints</li>
+                <li>Connected early users to the referral program — confirmed interest in the product already at an early stage</li>
+                <li>Launched a referral race with 3,000+ participants (pre-ordering started June 3) — validated the mechanic and early demand</li>
+                <li>Kept solutions consistent — evolved the internal design system so features looked and behaved as one experience</li>
+            </ul>
+        </div>
+    </section>
+
+    <nav class="case-nav grid">
+        <a href="../portfolio.html">← Back to Works</a>
+    </nav>
+
+</body>
+
+</html>
