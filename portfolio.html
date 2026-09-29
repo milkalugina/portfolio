@@ -146,19 +146,12 @@
             overflow: hidden;
             text-decoration: none;
             color: inherit;
+            cursor: default;
+            pointer-events: none;
         }
 
         .project .arrow {
-            position: relative;
-            z-index: 2;
-            width: 10px;
-            height: 10px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .project:hover .arrow {
-            transform: rotate(45deg);
+            display: none;
         }
 
         .project-media {
@@ -192,6 +185,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
+            margin-top: auto;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -490,7 +484,7 @@
     </section>
 
     <section class="cases grid">
-        <a href="" class="project" target="_blank" rel="noopener noreferrer">
+        <div class="project">
             <svg class="arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#1A1A1A" stroke-opacity="0.35" stroke-width="1.5"/>
             </svg>
@@ -501,9 +495,9 @@
                 <h3>Yandex Pay Ecom</h3>
                 <p>Growing payment scenarios beyond the Yandex ecosystem</p>
             </div>
-        </a>
+        </div>
 
-        <a href="cases/rocketbank.html" class="project">
+        <div class="project">
             <svg class="arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#1A1A1A" stroke-opacity="0.35" stroke-width="1.5"/>
             </svg>
@@ -514,9 +508,9 @@
                 <h3>Rocketbank</h3>
                 <p>Relaunching the bank: new business model, debit flows built from zero, and a loyalty system</p>
             </div>
-        </a>
+        </div>
 
-        <a href="cases/bang-bang-education.html" class="project">
+        <div class="project">
             <svg class="arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#1A1A1A" stroke-opacity="0.35" stroke-width="1.5"/>
             </svg>
@@ -527,9 +521,9 @@
                 <h3>Bang Bang Education</h3>
                 <p>Building an online school for design and IT</p>
             </div>
-        </a>
+        </div>
 
-        <a href="cases/kommuna-app.html" class="project">
+        <div class="project">
             <svg class="arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 11L11 1M11 1V11M11 1H1" stroke="#1A1A1A" stroke-opacity="0.35" stroke-width="1.5"/>
             </svg>
@@ -540,7 +534,7 @@
                 <h3>"Kommuna" App</h3>
                 <p>Building a side project: a dating app for finding roommates</p>
             </div>
-        </a>
+        </div>
     </section>
 
     <section class="cta">
